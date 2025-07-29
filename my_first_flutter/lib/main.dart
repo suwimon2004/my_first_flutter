@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart'; // Import ไลบรารี Material ของ Flutter
+
 void main() {
   // จุดเริ่มต้นของแอป Flutter
   runApp(const MyApp()); // บอก Flutter ว่าวิดเจ็ตใดคือรากฐานของแอป
@@ -11,15 +12,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // เมธอด build() ส่งคืนโครงสร้างต้นไม้วิดเจ็ตสำหรับวิดเจ็ตนี้
-    return MaterialApp(
-       theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true
-        ),
-      title: 'Flutter Demo',
-      home: const MyHomePage(),
-         // โครงสร้างหน้าจอพื้นฐาน
-    );
+   return MaterialApp(
+  title: 'My Awesome App',
+  debugShowCheckedModeBanner: false, // ซ่อนแบนเนอร์ debug
+  theme: ThemeData(
+    colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+    useMaterial3: true, // ใช้ Material Design เวอร์ชันล่าสุด
+  ),
+  home: const MyHomePage(), // วิดเจ็ตหน้าจอหลักของคุณ
+);
   }
 }
 class MyHomePage extends StatelessWidget {
@@ -29,29 +30,11 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold( // ให้โครงสร้างแอปพื้นฐาน
       appBar: AppBar(
-        title: const Text('Chapter 3 Lab'),
-        backgroundColor: const Color.fromARGB(255, 37, 155, 37), // ปรับแต่งสี AppBar
+        title: const Text('Home Page'),
+        backgroundColor: Colors.blue, // ปรับแต่งสี AppBar
       ),
-      body:Center( // พื้นที่เนื้อหาหลัก       
-         child:Container(
-          padding: EdgeInsets.all(50.0),
-         width: 300.0,
-         height: 200.0,
-         //color: Colors.amber,
-         decoration:BoxDecoration(
-         color: Colors.amber,
-          borderRadius: BorderRadius.all(Radius.circular(8.0))
-         ),
-         child:const Text('inside container',
-         textAlign: TextAlign.center,
-         style: TextStyle(
-          fontSize: 20.0,
-          fontWeight: FontWeight.bold,
-          color: Colors.brown
-         ),)
-         
-         
-),
+      body: const Center( // พื้นที่เนื้อหาหลัก
+        child: Text('This is the body!'),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
